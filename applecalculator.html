@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=  , initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .heading{
+      text-align: center;
+      color: rgb(21, 240, 50);
+      font-family:cursive;
+      font-size: 42px;
+    
+      
+    }
+    .container{
+      /* background-color: rgb(53, 49, 43); */
+      /* max-width: 250px;
+      margin:auto; */
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .button{
+      padding: 20px;
+      margin:  0 4px;
+      border: 0px solid rgb(18, 18, 19);
+      border-radius: 110px;
+      width: 60PX;
+      align-items: center;
+      font-size: large;
+      cursor:pointer;
+      
+    }  
+    .row{
+      margin: 7px 0;
+    }
+    .row input{
+      margin: 0px;
+      padding: 13px 50px; 
+      border: 2px solid rgb(212, 19, 19);
+      border-radius: 10px;
+      text-align: right;
+      
+    }
+    .footer{
+      
+     width: 84px;
+     /* box-sizing: border-box; */
+      
+      
+    }
+    .orange{
+      background-color: orangered;
+    }
+
+  </style>
+</head>
+<body style="background-color: rgb(14, 12, 12);">
+  <h1 class="heading">CALCULATOR</h1>
+  <div class="container ">
+    <div class="row" ><input class="input" type="text"></div>
+    
+
+    <div class="row">
+    <button class="button">7</button>
+    <button class="button">8</button>
+    <button class="button">9</button>
+    <button class="button orange">*</button>
+    </div>
+
+  <div class="row">
+    <button class="button">4</button>
+    <button class="button">5</button>
+    <button class="button">6</button> 
+    <button class="button orange">/</button>
+    </div> 
+
+    <div class="row">
+    <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
+    <button class="button orange">AC</button>
+    </div>
+
+    <div class="row">
+    <button class="button">0</button>
+    <button class="button orange">+</button>
+    <button class="button orange">-</button>
+    <button class="button orange">=</button>
+    </div>
+    <div class="row">
+      <button class="button footer orange">CE</button>
+      <button class="button footer orange">.</button>
+      <button class="button footer orange">%</button>
+      
+      </div>
+
+   </div>
+
+  
+</body>
+<script>
+  
+  let string="";
+  let buttons=document.querySelectorAll('.button');
+  Array.from(buttons).forEach((button)=>{
+    button.addEventListener('click',(e)=>{
+      if(e.target.innerHTML=='='){
+        string=eval(string);
+        document.querySelector('input').value=string;
+      }
+    else if(e.target.innerHTML=='AC'){
+      string=""
+      document.querySelector('input').value=string;
+    }
+    else if(e.target.innerHTML=='CE'){
+      
+    string=string.substring(0,string.length-1);
+      document.querySelector('input').value=string;
+    }
+    else{
+      
+     
+      string+=  e.target.innerHTML;
+      
+      document.querySelector('input').value=string;
+    }
+    })
+
+  })
+</script>
+</html>
